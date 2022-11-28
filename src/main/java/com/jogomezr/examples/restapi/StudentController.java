@@ -22,11 +22,26 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.Contact;
+import io.swagger.annotations.Info;
+import io.swagger.annotations.License;
+import io.swagger.annotations.SwaggerDefinition;
+import io.swagger.annotations.SwaggerDefinition.Scheme;
 
 @RestController
+@RequestMapping(value = "/api")
 @CrossOrigin
 @Validated
-@Api(value = "students", description = "The students API")
+@Api(value = "students")
+@SwaggerDefinition(info = @Info(
+		description = "The students API",
+		version = "v2",
+		title = "The students REST API example",
+		contact = @Contact(name = "Sponge-Bob", email = "sponge-bob@swagger.io", url = "http://swagger.io"),
+		license = @License(name = "Apache 2.0", url = "http://www.apache.org")),
+		host = "mycompany.com",
+		schemes =  Scheme.HTTPS
+)
 public class StudentController {
 
 	@ApiOperation(value = "Retrieve all students", nickname = "getAllStudents", notes = "Return a list of available students", response = Student.class, tags = {})

@@ -1,0 +1,22 @@
+{
+  "api_key": {
+    "type": "apiKey",
+    "description": "Security based on an API Key",
+    "name": "api_key",
+    "in": "header"
+  },
+  "token_auth": {
+    "type": "oauth2",
+    "description": "OAuth 2.0 token following Implicit grant type",
+    "authorizationUrl": "http://swagger.io/api/oauth/dialog",
+    "flow": "implicit",
+    "scopes": {
+      "write:pets": "modify pets in your account",
+      "read:pets": "read your pets"
+    }
+  },
+  "basic_auth": {
+	  "type": "basic",
+	  "description": "Username and password"
+  }
+}

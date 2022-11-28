@@ -15,6 +15,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<springfox-version>2.9.2</springfox-version>
 	</properties>
 
 	<dependencies>
@@ -29,6 +30,25 @@
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
+		</dependency>
+		
+		<!-- SpringFox dependencies -->
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${springfox-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${springfox-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
 		</dependency>
 			
 		<!-- OpenAPI Generation Dependencies - BEGIN -->
@@ -106,28 +126,18 @@
                       <apiSource>
                             <springmvc>true</springmvc>
                             <locations>com.jogomezr.examples.restapi</locations>
-                            <schemes>http,https</schemes>
-                            <host>mycompany.com</host>
-                            <basePath>/api</basePath>
-                            <info>
-                                <title>Spring Boot REST API Example App</title>
-                                <version>v1</version>
-                                <description>This is a sample for OpenAPI spec generation using swagger-maven-plugin</description>
-                                <contact>
-                                    <email>jogomezro@mycompany.com</email>
-                                    <name>Jose Alfredo</name>
-                                    <url>http://mycompany.com</url>
-                                </contact>
-                                <license>
-                                    <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
-                                    <name>Apache 2.0</name>
-                                </license>
-                            </info>
+                            <schemes>https</schemes>
+                            <templatePath>${basedir}/templates/markdown.hbs</templatePath>
                             <outputFormats>yaml</outputFormats>
-                            <outputPath>${basedir}/generated/document.html</outputPath>
+                            <outputPath>${basedir}/generated/documentation.md</outputPath>
                             <swaggerDirectory>generated/swagger-ui</swaggerDirectory>
                             <!-- Spring MVC REST Controllers -->
                             <swaggerApiReader>com.github.kongchen.swagger.docgen.reader.SpringMvcApiReader</swaggerApiReader>
+                            <securityDefinitions>
+                                <securityDefinition>
+                                    <json>/securityDefinitions.json</json>
+                                </securityDefinition>
+                            </securityDefinitions>
                         </apiSource>
                     </apiSources>
                 </configuration>

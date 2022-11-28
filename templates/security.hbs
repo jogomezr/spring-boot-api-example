@@ -1,0 +1,71 @@
+{{#each securityDefinitions}}
+### {{@key}}
+{{#this}}
+{{#ifeq type "oauth2"}}
+<table>
+    <tr>
+        <th>type</th>
+        <td colspan="2">{{type}}</td>
+    </tr>
+{{#if description}}<tr>
+        <th>description</th>
+        <td colspan="2">{{description}}</td>
+    </tr>
+{{/if}}{{#if authorizationUrl}}<tr>
+        <th>authorizationUrl</th>
+        <td colspan="2">{{authorizationUrl}}</td>
+    </tr>
+{{/if}}{{#if flow}}<tr>
+        <th>flow</th>
+        <td colspan="2">{{flow}}</td>
+    </tr>
+{{/if}}{{#if tokenUrl}}<tr>
+        <th>tokenUrl</th>
+        <td colspan="2">{{tokenUrl}}</td>
+    </tr>
+{{/if}}{{#if scopes}}<tr>
+        <th rowspan="3">scopes</th>
+{{#each scopes}}<td>{{@key}}</td>
+        <td>{{this}}</td>
+    </tr>
+    <tr>
+{{/each}}</tr>
+{{/if}}
+</table>
+{{/ifeq}}
+{{#ifeq type "apiKey"}}
+<table>
+    <tr>
+        <th>type</th>
+        <td colspan="2">{{type}}</td>
+    </tr>
+{{#if description}}<tr>
+        <th>description</th>
+        <td colspan="2">{{description}}</td>
+    </tr>
+{{/if}}{{#if name}}<tr>
+        <th>name</th>
+        <td colspan="2">{{name}}</td>
+    </tr>
+{{/if}}{{#if in}}<tr>
+        <th>in</th>
+        <td colspan="2">{{in}}</td>
+    </tr>
+{{/if}}
+</table>
+{{/ifeq}}
+{{#ifeq type "basic"}}
+<table>
+    <tr>
+        <th>type</th>
+        <td colspan="2">{{type}}</td>
+    </tr>
+{{#if description}}<tr>
+        <th>description</th>
+        <td colspan="2">{{description}}</td>
+    </tr>
+{{/if}}
+</table>
+{{/ifeq}}
+{{/this}}
+{{/each}}

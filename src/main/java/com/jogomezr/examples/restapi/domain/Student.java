@@ -1,13 +1,21 @@
 package com.jogomezr.examples.restapi.domain;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(description = "Represents a student")
 public class Student {
 
+	@ApiModelProperty(value = "Identifier of the student", required = true, example = "569898874")
 	private Long id;
 
+	@ApiModelProperty(value = "First name of the student", required = true, example = "Peter")
 	private String firstName;
 
+	@ApiModelProperty(value = "Last name of the student", required = true, example = "Griffin")
 	private String lastName;
 
+	@ApiModelProperty(value = "Age of the student", required = true, example = "58")
 	private Integer age;
 
 	public Student() {
