@@ -66,13 +66,6 @@
             </exclusions>
         </dependency>
         
-        <dependency>
-			<groupId>javax.ws.rs</groupId>
-			<artifactId>javax.ws.rs-api</artifactId>
-			<version>2.1</version>
-			<scope>provided</scope>
-		</dependency>
-        
         <!-- OpenAPI Generation Dependencies - END -->
 
 	</dependencies>
@@ -130,7 +123,7 @@
                             <templatePath>${basedir}/templates/markdown.hbs</templatePath>
                             <outputFormats>yaml</outputFormats>
                             <outputPath>${basedir}/generated/documentation.md</outputPath>
-                            <swaggerDirectory>generated/swagger-ui</swaggerDirectory>
+                            <swaggerDirectory>generated/swagger-api-spec</swaggerDirectory>
                             <!-- Spring MVC REST Controllers -->
                             <swaggerApiReader>com.github.kongchen.swagger.docgen.reader.SpringMvcApiReader</swaggerApiReader>
                             <securityDefinitions>
