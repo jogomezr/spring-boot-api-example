@@ -1,0 +1,17 @@
+#%Catalog Descriptor 1.0
+projects:
+  - main: generated/swagger-ui/swagger.yaml
+    documentation:
+      home: generated/documentation.md
+    versionStrategy: minorIncrease
+    versionStrategyConditions:
+      patchIncrease:
+        branches:
+          - 'develop'
+    categories:
+      API Type:
+        - System API
+    tags:
+      - Java
+      - Spring Boot
+
