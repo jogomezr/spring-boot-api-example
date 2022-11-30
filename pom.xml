@@ -121,8 +121,8 @@
                             <locations>com.jogomezr.examples.restapi</locations>
                             <schemes>https</schemes>
                             <templatePath>${basedir}/templates/markdown.hbs</templatePath>
-                            <outputFormats>yaml</outputFormats>
                             <outputPath>${basedir}/generated/documentation.md</outputPath>
+                            <outputFormats>yaml</outputFormats>
                             <swaggerDirectory>generated/swagger-api-spec</swaggerDirectory>
                             <!-- Spring MVC REST Controllers -->
                             <swaggerApiReader>com.github.kongchen.swagger.docgen.reader.SpringMvcApiReader</swaggerApiReader>
